@@ -14,24 +14,37 @@ class Parser {
     }
 
     /**
-     * Parse stetting file 
+     * Parse the file, avoid the static use on main function for better testing
+     *
+     * @param [string] $filePath
+     * @return array
+     */
+    private function parsing(string $filePath): array
+    {
+        return $this->parser::parseFile($filePath);
+    }
+
+    /**
+     * Return the settings array
      *
      * @param Yaml $parser
      * @return mixed
      */
-    public function parseYaml() {
-        $parsedFile = $this->parser::parseFile('settings.yaml');
+    public function parseYaml() : array
+    {
 
-        return $parsedFile;
+        return $this->parsing('./settings.yaml');
     }
 
+    
     /**
      * Transform Json Data to an array
      *
      * @param [Json] $json
      * @return array 
      */
-    public function parseJson($json) {
+    public function parseJson($json) : array
+    {
         return json_decode($json, true);
     }
 
