@@ -25,4 +25,14 @@ class Parser {
         return $parsedFile;
     }
 
+    /**
+     * Transform Json Data to an array
+     *
+     * @param [Json] $json
+     * @return array 
+     */
+    public function parseJson($json) {
+        return json_decode($json, true);
+    }
+
 }
