@@ -4,7 +4,8 @@
     "type": "library",
     "require": {
         "symfony/http-client": "^5.4",
-        "symfony/yaml": "^5.4"
+        "symfony/yaml": "^5.4",
+        "phpunit/phpunit": "^9.5"
     },
     "license": "MIT",
     "authors": [
@@ -15,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\": ""
+            "Library\\": "library"
         }
     }
 }
