@@ -3,7 +3,8 @@
     "description": "Simple Notion Library for PHP that use Notion Api",
     "type": "library",
     "require": {
-        "symfony/http-client": "^5.4"
+        "symfony/http-client": "^5.4",
+        "symfony/yaml": "^5.4"
     },
     "license": "MIT",
     "authors": [
@@ -11,5 +12,10 @@
             "name": "Thomas75019",
             "email": "tlarousse3@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    }
 }
