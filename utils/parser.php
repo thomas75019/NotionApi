@@ -5,23 +5,24 @@ namespace Library\utils;
 use Symfony\Component\Yaml\Yaml;
 
 class Parser {
-    /**
-     * Parsed file
-     * 
-     * @var [mixed]
-     */
-    private $parsedFile;
+    
+    private $parser;
+
+    private function __construct(Yaml $yaml)
+    {
+        $this->parser = $yaml;
+    }
 
     /**
      * Parse stetting file 
      *
      * @param Yaml $parser
-     * @return void
+     * @return mixed
      */
-    private function parseYaml(Yaml $parser) {
-        $this->parsedFile = $parser::parseFile('../settings.yaml');
+    public function parseYaml() {
+        $parsedFile = $this->parser::parseFile('../settings.yaml');
 
-        return $this;
+        return $parsedFile;
     }
 
 }
