@@ -4,6 +4,7 @@ namespace Library\utils;
 
 use Symfony\Component\Yaml\Yaml;
 
+
 class Parser {
     
     private $parser;
@@ -27,7 +28,6 @@ class Parser {
     /**
      * Return the settings array
      *
-     * @param Yaml $parser
      * @return mixed
      */
     public function parseYaml() : array
@@ -45,7 +45,16 @@ class Parser {
      */
     public function parseJson($json) : array
     {
-        return json_decode($json, true);
+        if ($this->isJson($json)) {
+            return json_decode($json, true);
+        }
+        throw new \Exception("The data is not a valid json");
+    }
+
+    private function isJson($string) : bool
+    {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
     }
 
 }
