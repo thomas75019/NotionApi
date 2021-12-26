@@ -20,19 +20,24 @@ class HttpMethods
     }
 
 
-    public function get(string $context, string $id = null)
+    public function get(string $context, string $id)
     {
         $yaml = new Yaml();
         $parser = new Parser($yaml);
         
         $response = $this->client->request('GET', self::BASE_URL . self::API_VERSION . "/" . $context . "/" . $id, [
             'headers' => [
-                'Authorization' => 'Bearer ' . ApiKey::getApiKey($parser->parseYaml()),
+                'Authorization' => 'Bearer ' . ApiKey::getApiKey($parser),
                 'Notion-Version' => '2021-08-16'
             ]
         ]);
 
-        return $response->toArray();
+        if ($response->getStatusCode() == 200) {
+            return $response->toArray();
+        } else {
+            return false;
+        }
+
     }
     
 

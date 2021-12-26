@@ -40,7 +40,7 @@ final class HttpMethodsTest extends TestCase
         
         $this->response->expects($this->once())->method('getStatusCode')->willReturn(200);
         $this->client->expects($this->once())->method('get')->willReturn($this->response);
-        $this->client->get('test');
+        $this->client->get('test', 'test');
     
         $this->assertInstanceOf(ResponseInterface::class, $this->response);
         $this->assertEquals(200, $this->response->getStatusCode());
@@ -66,5 +66,6 @@ final class HttpMethodsTest extends TestCase
         $this->assertInstanceOf(ResponseInterface::class, $this->response);
         $this->assertEquals(400, $this->response->getStatusCode());
     }
+
     
 }

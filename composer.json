@@ -5,7 +5,8 @@
     "require": {
         "symfony/http-client": "^5.4",
         "symfony/yaml": "^5.4",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "php-di/php-di": "^6.3"
     },
     "license": "MIT",
     "authors": [
