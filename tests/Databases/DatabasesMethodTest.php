@@ -28,6 +28,4 @@ final class DatabasesMethodTest extends TestCase
         $this->assertEquals($this->database->retrieveDatabase('test'), 'Bad request');
     }
 
-    
-
 }
