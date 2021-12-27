@@ -15,7 +15,7 @@ class Database
     
     
 
-    public function getDatabase($id)
+    public function retrieveDatabase($id)
     {
         $response = $this->methods->get('database', $id);
 

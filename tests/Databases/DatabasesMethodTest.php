@@ -14,18 +14,18 @@ final class DatabasesMethodTest extends TestCase
 
     }
 
-    public function testGetDatabase(): void
+    public function testRetrieveDatabase(): void
     {
         $database = $this->createMock(Database::class);
 
-        $database->expects($this->once())->method('getDatabase')->willReturn(['test']);
+        $database->expects($this->once())->method('retrieveDatabase')->willReturn(['test']);
 
-        $this->assertTrue(is_array($database->getDatabase(1)));
+        $this->assertTrue(is_array($database->retrieveDatabase(1)));
     }
 
     public function testGetDatabaseBadRequest()
     {
-        $this->assertEquals($this->database->getDatabase('test'), 'Bad request');
+        $this->assertEquals($this->database->retrieveDatabase('test'), 'Bad request');
     }
 
     
