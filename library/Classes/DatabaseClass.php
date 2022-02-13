@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Classes\Database;
+namespace Library\Classes;
 
 use DateTime;
 
@@ -118,7 +118,5 @@ class Database {
     {
         $this->url = $url;
     }
-
-
 
 }
