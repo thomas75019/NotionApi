@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Database\Interfaces;
+namespace Library\Interfaces;
 
 interface PropertiesObjectInterface
 {

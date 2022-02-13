@@ -2,7 +2,8 @@
 
 namespace Library\Classes;
 
-use Library\Database\Interfaces\PropertiesObjectInterface;
+use Library\Interfaces\PropertiesObjectInterface;
+use Library\Classes\ParentClass;
 use DateTime;
 
 class Database {
@@ -35,7 +36,6 @@ class Database {
             throw new \Exception("Invalid ID, the ID should be a valid UUID");
         }
         
-
         if ((DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $createdTime) && DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $lastEditedTime))!== false) {
             $this->createdTime = $createdTime;
             $this->lastEditedTime = $lastEditedTime;
@@ -46,7 +46,12 @@ class Database {
         $this->title = $title;
         $this->icon = $icon;
         $this->properties = $properties;
-        $this->parent = $parent;
+
+        if ($parent instanceof ParentClass) {
+            $this->parent = $parent;
+        } else {
+            throw new \Exception("Invalid parent, the parent should be a valid parent or a workspace parent");
+        }
     }
 
     public function getId(): string
