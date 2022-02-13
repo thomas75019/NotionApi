@@ -2,6 +2,7 @@
 
 namespace Library\Classes;
 
+use Library\Database\Interfaces\PropertiesObjectInterface;
 use DateTime;
 
 class Database {
@@ -24,11 +25,24 @@ class Database {
     private string $url;
 
 
-    public function __construct(string $id, string $createdTime, string $lastEditedTime, array $title, $icon, $properties, $parent)
+    public function __construct(string $id, string $createdTime, string $lastEditedTime, array $title, $icon, PropertiesObjectInterface $properties, $parent)
     {
-        $this->id = $id;
-        $this->createdTime = $createdTime;
-        $this->lastEditedTime = $lastEditedTime;
+
+        if (preg_match('/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i', $id))
+        {
+            $this->id = $id;
+        } else {
+            throw new \Exception("Invalid ID, the ID should be a valid UUID");
+        }
+        
+
+        if ((DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $createdTime) && DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $lastEditedTime))!== false) {
+            $this->createdTime = $createdTime;
+            $this->lastEditedTime = $lastEditedTime;
+        } else {
+            throw new \Exception("Invalid date, the date should be a valid date");
+        }
+
         $this->title = $title;
         $this->icon = $icon;
         $this->properties = $properties;
@@ -104,7 +118,7 @@ class Database {
         $this->icon = $icon;
     }
 
-    public function setProperties($properties)
+    public function setProperties(string $properties)
     {
         $this->properties = $properties;
     }
@@ -118,5 +132,6 @@ class Database {
     {
         $this->url = $url;
     }
+
 
 }
