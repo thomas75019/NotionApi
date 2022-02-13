@@ -21,6 +21,8 @@ class Database {
 
     private object $parent;
 
+    private string $url;
+
 
     public function __construct(string $id, string $createdTime, string $lastEditedTime, array $title, $icon, $properties, $parent)
     {
@@ -68,6 +70,11 @@ class Database {
         return $this->parent;
     }
 
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
     public function setId(string $id)
     {
         $this->id = $id;
@@ -106,5 +113,12 @@ class Database {
     {
         $this->parent = $parent;
     }
+
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+    }
+
+
 
 }

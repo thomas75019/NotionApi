@@ -12,8 +12,6 @@ class Database
     {
         $this->methods = new HttpMethods();
     }
-    
-    
 
     public function retrieveDatabase(string $id)
     {
