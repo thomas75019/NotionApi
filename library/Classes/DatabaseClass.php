@@ -47,11 +47,16 @@ class Database {
         $this->icon = $icon;
         $this->properties = $properties;
 
-        if ($parent instanceof ParentClass) {
+        if ($parent instanceof ParentClass || $parent instanceof WorkspaceParentClass) {
             $this->parent = $parent;
         } else {
             throw new \Exception("Invalid parent, the parent should be a valid parent or a workspace parent");
         }
+    }
+
+    public function getObject(): string
+    {
+        return $this->object;
     }
 
     public function getId(): string
