@@ -3,6 +3,7 @@
 namespace Library\Interfaces;
 
 use DateTime;
+use DateTimeInterface;
 
 interface PageInterface
 {
@@ -11,10 +12,10 @@ interface PageInterface
     public function setPageId(string $pageId): string;
     public function getPageId(): string;
 
-    public function getCreatedTime(): DateTime;
+    public function getCreatedTime(): string;
 
     public function setLastEditedTime(DateTime $date): void;
-    public function getLastEditedTime(): DateTime;
+    public function getLastEditedTime(): string;
 
     public function setLastEditedBy(UserInterface $user): void;
     public function getLastEditedBy(): UserInterface;

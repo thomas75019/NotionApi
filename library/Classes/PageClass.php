@@ -2,10 +2,12 @@
 namespace Library\Classes;
 
 use DateTime;
+use DateTimeInterface;
 use Library\Interfaces\PageInterface;
 use Library\Interfaces\PropertiesObjectInterface;
 use Library\Interfaces\UserInterface;
 use Library\Interfaces\ParentInterface;
+use Library\Interfaces\EmojiInterface;
 
 class PageClass implements PageInterface
 {
@@ -27,7 +29,7 @@ class PageClass implements PageInterface
         }
 
         if (empty($this->createdTime)) {
-            $this->createdTime = new DateTime();
+            $this->createdTime = $this->setCreatedTime();
         }
     }
 
@@ -46,8 +48,11 @@ class PageClass implements PageInterface
         return $this->pageId;
     }
 
-    
-    public function getCreatedTime(): DateTime    
+    public function setCreatedTime(): void
+    {
+        $this->createdTime = new DateTime();
+    }
+    public function getCreatedTime(): string   
     {
         return $this->createdTime;
     }
@@ -57,7 +62,7 @@ class PageClass implements PageInterface
         $this->lastEditedTime = $lastEditedTime;
     }
 
-    public function getLastEditedTime(): DateTime
+    public function getLastEditedTime(): string
     {
         return $this->lastEditedTime;
     }
