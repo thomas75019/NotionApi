@@ -18,7 +18,7 @@ class Database
 
     public function retrieveDatabase(string $id)
     {
-        $response = $this->methods->get('database', $id);
+        $response = $this->methods->get('databases', $id);
 
         if (is_array($response) ){
             return $response;
@@ -36,7 +36,7 @@ class Database
             'property' => $property->toJson()
         ];
 
-        $response = $this->methods->post('database', $parent->getPageId(), $data);
+        $response = $this->methods->post('databases', $parent->getPageId(), $data);
 
         if ($response->getStatusCode() == 201) {
             return $response->getContent();
@@ -68,7 +68,7 @@ class Database
         ];
         
 
-        $response = $this->methods->patch('database', $page->getPageId(), $data);
+        $response = $this->methods->patch('databases', $page->getPageId(), $data);
 
         if ($response->getStatusCode() == 200) {
             return $response->getContent();
