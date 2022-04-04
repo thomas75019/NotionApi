@@ -68,7 +68,7 @@ class Database
         ];
         
 
-        $response = $this->methods->patch($page->getPageId(), $data);
+        $response = $this->methods->patch('database', $page->getPageId(), $data);
 
         if ($response->getStatusCode() == 200) {
             return $response->getContent();
