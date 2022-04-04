@@ -5,6 +5,7 @@ namespace Library\Database;
 use Library\HTTP\HttpMethods;
 use Library\Interfaces\PropertiesObjectInterface;
 use Library\Interfaces\ParentInterface;
+use Library\Interfaces\PageInterface;
 
 class Database 
 {
