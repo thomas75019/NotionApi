@@ -3,7 +3,7 @@
 namespace Library\Classes;
 
 use Error;
-use Library\Database\Interfaces\PropertiesObjectInterface;
+use Library\Interfaces\PropertiesObjectInterface;
 
 class PropertiesClass implements PropertiesObjectInterface
 {
