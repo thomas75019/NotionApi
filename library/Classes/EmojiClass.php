@@ -21,4 +21,11 @@ class EmojiClass implements EmojiInterface
     {
         return $this->emoji;
     }
+
+    //emoji to jspn
+    public function emojiToJson(string $emoji): string
+    {
+        $emoji = json_encode($emoji);
+        return $emoji;
+    }
 }
