@@ -2,7 +2,6 @@
 namespace Library\Classes;
 
 use DateTime;
-use DateTimeInterface;
 use Library\Interfaces\PageInterface;
 use Library\Interfaces\PropertiesObjectInterface;
 use Library\Interfaces\UserInterface;
@@ -14,20 +13,15 @@ class PageClass implements PageInterface
     private string $pageId;
     private string $createdTime;
     private string $lastEditedTime;
-    private UserInterface $lastEditedBy;
+    private UserInterface $user;
     private bool $archived;
     private EmojiInterface $icon;
     private PropertiesObjectInterface $properties;
     private ParentInterface $parent;
     private string $url;
 
-    public function __construct(string $pageId)
+    public function __construct()
     {
-        if (preg_match('/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i', $id))
-        {
-            $this->pageId = $pageId;
-        }
-
         if (empty($this->createdTime)) {
             $this->createdTime = $this->setCreatedTime();
         }
@@ -38,10 +32,6 @@ class PageClass implements PageInterface
         return "page";
     }
 
-    public function setPageId(string $pageId): void
-    {
-        $this->pageId = $pageId;
-    }
     
     public function getPageId(): string
     {
@@ -87,13 +77,13 @@ class PageClass implements PageInterface
         return $this->archived;
     }
 
-    public function setIcon(EmojiInterface $emoji): void
+    public function setIcon(EmojiInterface $icon): void
     {
-        $this->emoji = $emoji;
+        $this->icon = $icon;
     }
     public function getIcon(): EmojiInterface
     {
-        return $this->emoji;
+        return $this->icon;
     }
     
     public function setProperties(PropertiesObjectInterface $properties): void
