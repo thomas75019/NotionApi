@@ -50,4 +50,13 @@ class PropertiesClass implements PropertiesObjectInterface
         return $this->name;
     }
 
+    public function toJson(): string
+    {
+        return json_encode([
+            'id' => $this->getId(),
+            'type' => $this->getType(),
+            'name' => $this->getName()
+        ]);
+    }
+
 }

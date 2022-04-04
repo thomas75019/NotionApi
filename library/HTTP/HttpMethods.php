@@ -47,7 +47,7 @@ class HttpMethods
         $response = $client->request('POST', self::BASE_URL . self::API_VERSION . '/' . $context . '/' . $id , [
             'body' => $data
         ]);
-        return $response->getContent();
+        return $response;
     }
 
     public static function patch(string $url, array $data)
@@ -56,7 +56,7 @@ class HttpMethods
         $response = $client->request('PATCH', $url, [
             'body' => $data
         ]);
-        return $response->getContent();
+        return $response;
     }
 
     public function delete(array $data, string $id)
@@ -65,6 +65,6 @@ class HttpMethods
         $response = $client->request('DELETE', self::BASE_URL . self::API_VERSION . '/' . 'blocks' . '/' . $id , [
             'body' => $data
         ]);
-        return $response->getStatusCode();
+        return $response;
     }
 }
