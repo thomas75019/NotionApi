@@ -50,10 +50,10 @@ class HttpMethods
         return $response;
     }
 
-    public static function patch(string $url, array $data)
+    public static function patch(string $id, array $data)
     {
         $client = HttpClient::create();
-        $response = $client->request('PATCH', $url, [
+        $response = $client->request('PATCH', self::BASE_URL . self::API_VERSION . '/' . $id , [
             'body' => $data
         ]);
         return $response;

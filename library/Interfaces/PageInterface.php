@@ -6,8 +6,8 @@ interface PageInterface
 {
     public function getObject(): string;
 
-    public function setId(): string;
-    public function getId(): string;
+    public function setPageId(): string;
+    public function getPageId(): string;
 
     public function setCreatedTime(): string;
     public function getCreatedTime(): string;
