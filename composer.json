@@ -18,5 +18,11 @@
         "psr-4": {
             "Library\\": "library"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests"
+    },
+    "require-dev": {
+        "phpunit/php-code-coverage": "^9.2"
     }
 }

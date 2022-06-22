@@ -45,7 +45,7 @@ class Database
         throw new \Exception("An error occured, the database was not created");
     }
 
-    public function UpdateDatabase(PageInterface $page, PropertiesObjectInterface $property, bool $archived = null,  EmojiInterface $icon, string $cover = null)
+    public function UpdateDatabase(PageInterface $page, PropertiesObjectInterface $property, bool $archived = null,  EmojiInterface $icon, string $cover)
     {
 
         //check if $icon and $cover are valid Json
@@ -55,7 +55,7 @@ class Database
             }
         }
         if ($cover != null) {
-            if (json_decode($$cover) == null) {
+            if (json_decode($cover) == null) {
                 throw new \Exception("Invalid cover, the cover should be a valid Json");
             }
         }
